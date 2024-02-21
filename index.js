@@ -1,10 +1,7 @@
 const sketchArea = document.querySelector(".sketch-area");
 const gridSize = document.querySelector(".button");
-
-let gridSide = 700;
-
-sketchArea.style.height = `${gridSide}px`;
-sketchArea.style.width = `${gridSide}px`;
+const slideInput = document.querySelector(".slideInput");
+const slideLabel = document.querySelector(".slide-label");
 
 function createGrid(squares) {
   sketchArea.textContent = "";
@@ -25,13 +22,20 @@ function createGrid(squares) {
   }
 }
 
-gridSize.addEventListener("click", () => {
-  let sign = window.prompt("Please enter a number between 1 to 64");
-  if (sign > 64 || sign < 1) {
-    return alert("Please enter a number between 1 to 64");
-  } else {
-    createGrid(sign);
-  }
+//Events
+//gridSize.addEventListener("click", () => {
+//  let sign = window.prompt("Please enter a number between 1 to 64");
+//  if (sign > 64 || sign < 1) {
+//    return alert("Please enter a number between 1 to 64");
+//  } else {
+//    createGrid(sign);
+//  }
+//});
+
+slideInput.addEventListener("input", (slideEvent) => {
+  inputSize = slideEvent.target.value;
+  slideLabel.textContent = `${inputSize} X ${inputSize}`;
+  createGrid(inputSize);
 });
 
 createGrid(16);

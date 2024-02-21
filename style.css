@@ -4,21 +4,68 @@
   box-sizing: border-box;
 }
 
-.container {
+.header {
+  text-align: center;
+}
+
+.wrapper {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  max-width: 1100px;
+  margin: 0 auto;
 }
 
 .sketch-area {
   display: flex;
+  justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
+  height: 700px;
+  width: 700px;
   background-color: white;
-  margin: 100px auto;
+  margin: 50px auto;
   border: 2px solid rgb(173, 16, 16);
 }
 
 .cell {
-  border: 1px solid rgba(70, 70, 70, 0.726);
+  border: 1px solid rgba(173, 173, 173, 0.849);
+}
+
+.control-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: beige;
+}
+
+.slide-container {
+  text-align: center;
+  padding: 40px;
+}
+
+.button {
+  display: flex;
+  margin-top: 10px ;
+  flex-direction: column;
+  padding: 40px;
+}
+
+.button button {
+  font-size: 50px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+
+
+
+@media screen and (max-width: 600px) {
+  .sketch-area {
+    height: 320px;
+    width: 320px;
+  }
 }

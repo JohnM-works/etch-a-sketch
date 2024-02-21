@@ -8,10 +8,34 @@
 </head>
 <body>
     <div class="container">
-        <div class="button">
-            <button>Grid Size</button>
+        <div class="header">
+            <h1>Etch-A-Sketch</h1>
         </div>
-        <div class="sketch-area"></div>
+        <div class="wrapper">
+            <div class="control-wrapper">
+                <div class="slide-container">
+                    <p class="slide-label">16 X 16<br><p>
+                    <input type="range" class="slideInput" min="8"max="64" id="slide" list="markers" step="8"value="16">
+                    <datalist id="markers">
+                        <option value="8"></option>
+                        <option value="16"></option>
+                        <option value="24"></option>
+                        <option value="32"></option>
+                        <option value="40"></option>
+                        <option value="48"></option>
+                        <option value="56"></option>
+                        <option value="64"></option>
+                    </datalist>
+                </div>
+                <div class="button">
+                    <button>back</button>
+                    <button>back</button>
+                    <button>back</button>
+                    <button>back</button>
+                </div>
+            </div>
+            <div class="sketch-area"></div>
+        </div>      
     </div>
 <script src="index.js"></script>
 </body>
