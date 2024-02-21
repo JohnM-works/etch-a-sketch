@@ -4,7 +4,8 @@
   box-sizing: border-box;
 }
 
-.header {
+.container {
+  background-color: yellow;
   text-align: center;
 }
 
@@ -60,12 +61,10 @@
   margin-bottom: 10px;
 }
 
-
-
-
 @media screen and (max-width: 600px) {
   .sketch-area {
     height: 320px;
     width: 320px;
   }
 }
+

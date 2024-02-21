@@ -22,16 +22,6 @@ function createGrid(squares) {
   }
 }
 
-//Events
-//gridSize.addEventListener("click", () => {
-//  let sign = window.prompt("Please enter a number between 1 to 64");
-//  if (sign > 64 || sign < 1) {
-//    return alert("Please enter a number between 1 to 64");
-//  } else {
-//    createGrid(sign);
-//  }
-//});
-
 slideInput.addEventListener("input", (slideEvent) => {
   inputSize = slideEvent.target.value;
   slideLabel.textContent = `${inputSize} X ${inputSize}`;
