@@ -29,15 +29,23 @@
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  height: 700px;
-  width: 700px;
+  height: 600px;
+  width: 600px;
   background-color: white;
   margin: 50px auto;
   border: 2px solid rgb(173, 16, 16);
 }
 
-.sketch-area .cell {
+.cell {
   border: 1px solid rgba(173, 173, 173, 0.849);
+}
+
+.active {
+  border: none;
+}
+
+.square {
+  border: none;
 }
 
 .control-wrapper {
