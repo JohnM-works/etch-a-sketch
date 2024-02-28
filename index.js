@@ -9,6 +9,10 @@ const gridBtn = document.querySelector("#grid-btn");
 const colorPicker = document.querySelector("#colorPicker");
 const eraserBtn = document.querySelector(".eraser-btn");
 
+let mouseDown = 0;
+document.body.onmousedown = () => (mouseDown = 1);
+document.body.onmouseup = () => (mouseDown = 0);
+
 function createGrid(squares) {
   for (let i = 0; i < squares * squares; i++) {
     let gridPixels = document.createElement("div");
@@ -17,6 +21,37 @@ function createGrid(squares) {
     gridPixels.style.height = `${100 / squares}%`;
     gridPixels.style.width = `${100 / squares}%`;
     sketchArea.appendChild(gridPixels);
+
+    //gridPixels.addEventListener("mouseover", () => {
+    //gridPixels.style.backgroundColor = "black";
+    //});
+
+    gridPixels.addEventListener("mousedown", changeColor);
+    gridPixels.addEventListener("mouseover", changeColor);
+  }
+}
+
+function changeColor(color) {
+  if (mouseDown) {
+    randomBtn.addEventListener("click", () => {
+      const squares = document.querySelectorAll(".cell");
+      squares.forEach((square) => {
+        square.removeEventListener("mouseover", colorPick);
+        square.removeEventListener("mouseover", eraseColor);
+
+        square.addEventListener("mouseover", randColors);
+      });
+    });
+
+    colorBtn.addEventListener("click", () => {
+      const squares = document.querySelectorAll(".cell");
+      squares.forEach((square) => {
+        square.removeEventListener("mouseover", eraseColor);
+        square.removeEventListener("mouseover", randColors);
+
+        square.addEventListener("mouseover", colorPick);
+      });
+    });
   }
 }
 
@@ -50,8 +85,6 @@ function toggleOutline() {
   });
 }
 
-function pickColor() {}
-
 //-------EVENTS------//
 
 //random color event
@@ -60,6 +93,7 @@ randomBtn.addEventListener("click", () => {
   squares.forEach((square) => {
     square.removeEventListener("mouseover", colorPick);
     square.removeEventListener("mouseover", eraseColor);
+
     square.addEventListener("mouseover", randColors);
   });
 });
@@ -70,6 +104,7 @@ colorBtn.addEventListener("click", () => {
   squares.forEach((square) => {
     square.removeEventListener("mouseover", eraseColor);
     square.removeEventListener("mouseover", randColors);
+
     square.addEventListener("mouseover", colorPick);
   });
 });
@@ -119,4 +154,4 @@ slideInput.addEventListener("input", (slideEvent) => {
   createGrid(inputSize);
 });
 
-createGrid(16);
+createGrid(slideInput.value);
