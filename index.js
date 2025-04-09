@@ -22,35 +22,8 @@ function createGrid(squares) {
     gridPixels.style.width = `${100 / squares}%`;
     sketchArea.appendChild(gridPixels);
 
-    //gridPixels.addEventListener("mouseover", () => {
-    //gridPixels.style.backgroundColor = "black";
-    //});
-
-    gridPixels.addEventListener("mousedown", changeColor);
-    gridPixels.addEventListener("mouseover", changeColor);
-  }
-}
-
-function changeColor(color) {
-  if (mouseDown) {
-    randomBtn.addEventListener("click", () => {
-      const squares = document.querySelectorAll(".cell");
-      squares.forEach((square) => {
-        square.removeEventListener("mouseover", colorPick);
-        square.removeEventListener("mouseover", eraseColor);
-
-        square.addEventListener("mouseover", randColors);
-      });
-    });
-
-    colorBtn.addEventListener("click", () => {
-      const squares = document.querySelectorAll(".cell");
-      squares.forEach((square) => {
-        square.removeEventListener("mouseover", eraseColor);
-        square.removeEventListener("mouseover", randColors);
-
-        square.addEventListener("mouseover", colorPick);
-      });
+    gridPixels.addEventListener("mouseover", () => {
+      gridPixels.style.backgroundColor = "black";
     });
   }
 }
